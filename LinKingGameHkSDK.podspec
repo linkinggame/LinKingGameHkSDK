@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LinKingGameHkSDK'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A short description of LinKingGameHkSDK.'
 
 # This description is used to generate tags and improve search results.
@@ -21,22 +21,26 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/leon/LinKingGameHkSDK'
+  s.homepage         = 'https://github.com/linkinggame/LinKingGameHkSDK'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'leon' => 'dml630@163.com' }
-  s.source           = { :git => 'https://github.com/leon/LinKingGameHkSDK.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/linkinggame/LinKingGameHkSDK.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
+  s.static_framework = true
 
-  s.source_files = 'LinKingGameHkSDK/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'LinKingGameHkSDK' => ['LinKingGameHkSDK/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.source_files = 'LinKingGameHkSDK/Classes/**/*.*'
+  s.resources = "LinKingGameHkSDK/Assets/*.*"
+  s.dependency 'FBSDKLoginKit', '~> 11.2.0'
+  s.dependency 'FBSDKShareKit', '~> 11.2.0'
+  s.dependency 'Beta-AppsFlyerFramework', '~> 6.0.2.174'
+  s.dependency 'SDWebImage', '~> 5.0.6'
+  s.dependency 'Toast', '~> 4.0.0'
+  s.dependency 'AFNetworking', '~> 4.0.1'
+  s.dependency 'FBAudienceNetwork', '~> 6.5.1'
+  s.dependency 'IronSourceSDK','7.1.1.0'
+  s.dependency 'IronSourcePangleAdapter','4.3.0.2'
 end

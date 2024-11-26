@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="tQj-9n-3Eg" customClass="LEAlertView">
+            <rect key="frame" x="0.0" y="0.0" width="288" height="174"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="温馨提示" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZ0-qP-TEI">
+                    <rect key="frame" x="10" y="20" width="268" height="22"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录失败或账号在其他设备登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf1-J7-U3o">
+                    <rect key="frame" x="10" y="72.5" width="268" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2oG-Ef-hR5">
+                    <rect key="frame" x="94" y="124" width="100" height="30"/>
+                    <color key="backgroundColor" red="0.93038254980000001" green="0.1749303341" blue="0.1777021885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="dea-Aq-mHX"/>
+                        <constraint firstAttribute="height" constant="30" id="kF4-yO-4YY"/>
+                    </constraints>
+                    <state key="normal" title="重新登录">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="relogin:" destination="tQj-9n-3Eg" eventType="touchUpInside" id="I8p-XP-tV9"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="QZ0-qP-TEI" firstAttribute="leading" secondItem="tQj-9n-3Eg" secondAttribute="leading" constant="10" id="88a-c0-yPp"/>
+                <constraint firstAttribute="trailing" secondItem="QZ0-qP-TEI" secondAttribute="trailing" constant="10" id="90n-6F-0lr"/>
+                <constraint firstItem="Qf1-J7-U3o" firstAttribute="centerY" secondItem="tQj-9n-3Eg" secondAttribute="centerY" constant="-5" id="As9-6j-Yid"/>
+                <constraint firstItem="Qf1-J7-U3o" firstAttribute="leading" secondItem="RRI-Oe-v1G" secondAttribute="leading" constant="10" id="CUD-fm-POk"/>
+                <constraint firstItem="RRI-Oe-v1G" firstAttribute="trailing" secondItem="Qf1-J7-U3o" secondAttribute="trailing" constant="10" id="KAX-3P-6m3"/>
+                <constraint firstItem="Qf1-J7-U3o" firstAttribute="centerX" secondItem="tQj-9n-3Eg" secondAttribute="centerX" id="RMm-OE-XPg"/>
+                <constraint firstItem="RRI-Oe-v1G" firstAttribute="bottom" secondItem="2oG-Ef-hR5" secondAttribute="bottom" constant="20" id="UrW-lz-D1V"/>
+                <constraint firstItem="2oG-Ef-hR5" firstAttribute="centerX" secondItem="tQj-9n-3Eg" secondAttribute="centerX" id="gQ6-VX-ZjX"/>
+                <constraint firstItem="QZ0-qP-TEI" firstAttribute="top" secondItem="tQj-9n-3Eg" secondAttribute="top" constant="20" id="m5C-Lk-pe0"/>
+                <constraint firstItem="QZ0-qP-TEI" firstAttribute="centerX" secondItem="tQj-9n-3Eg" secondAttribute="centerX" id="tmd-el-HKn"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="RRI-Oe-v1G"/>
+            <connections>
+                <outlet property="button_ReLogin" destination="2oG-Ef-hR5" id="ZCR-DB-diL"/>
+                <outlet property="label_tip" destination="Qf1-J7-U3o" id="hXl-47-N65"/>
+                <outlet property="label_title" destination="QZ0-qP-TEI" id="65S-cF-7Ha"/>
+                <outlet property="layout_button_width" destination="dea-Aq-mHX" id="bmy-4b-We3"/>
+            </connections>
+            <point key="canvasLocation" x="-23.188405797101453" y="58.258928571428569"/>
+        </view>
+    </objects>
+</document>

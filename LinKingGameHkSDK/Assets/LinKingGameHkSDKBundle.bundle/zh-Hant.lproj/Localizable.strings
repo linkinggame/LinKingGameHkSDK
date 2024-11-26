@@ -1,0 +1,39 @@
+/*
+  Localizable.strings
+  LingKingSDK
+
+  Created by leon on 2020/4/22.
+  Copyright © 2020 dml1630@163.com. All rights reserved.
+*/
+"KEY"                     = "繁体中文";
+"Touch To Start" = "點擊開始";
+"I have read and agree" = "我已閱讀並同意";
+"User Agreement" = "用戶協議";
+"Privacy Policy" = "隱私條款";
+"ACCOUNT SETTING" = "賬戶設置";
+"Change"="切換";
+"User ID"="User ID";
+"Link your account"="綁定你的賬號";
+"Log out"="登出";
+"The account is already bound"="該賬號已經綁定";
+"Bind with Facebook or Apple account to save your progress"="與Facebook或Apple帳戶綁定以保存進度";
+"Bind successfully"="綁定成功";
+"Cancel login"="取消登入";
+"OR"="或";
+"LICENSE AGREEMENT"="許可協議";
+"Facebook"="Facebook";
+"Google"="Google";
+"Please check the agreement"="Please check the agreement";
+"Tips"="溫馨提示";
+"Invalid login or account login on other devices"="登入失效或賬號在其它設備登入";
+"Again login"="重新登入";
+"Login Successful"="登入成功";
+"Could not log in. Please check your network connection and try again" = "Could not log in. Please check your network connection and try again";
+"The system version is too low, please upgrade first, continue to use Sign In With Apple"="系統版本過低，請先升級，繼續使用Sign In With Apple";
+"Sign in with Facebook"="通過Facebook登入";
+"Sign in with Apple"="通過Apple登入";
+"Guest Login" = "遊客登入";
+"Other Login" = "其他方式登入";
+"agree"="同意";
+"OK"="確認";
+"Agreement not checked"="未勾選協議";

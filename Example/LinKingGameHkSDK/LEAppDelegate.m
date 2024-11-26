@@ -7,13 +7,52 @@
 //
 
 #import "LEAppDelegate.h"
-
+#import <LinKingGameHkSDK/LinKingGameHkSDK.h>
+#import <AdSupport/AdSupport.h>
 @implementation LEAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+    NSLog(@"idfa=%@", [[ASIdentifierManager sharedManager] advertisingIdentifier]);
+    [LKLog setLogLevel:LKLogLevelVerbose];
+    [LEThirdLog setThirdLog:LEThirdLogLevelOn];
+    // 注册AF
+    [[LEAFManager shared] registAppsFlyerDevKey:@"Rz7VqcsJLyJeofrrdNMQgg" appleAppID:@"id1556813676" isDebug:YES];
+    [[LESDKManager shared] application:application didFinishLaunchingWithOptions:launchOptions];
+    /// 注册SDK（appid&key由零境提供）
+    [[LESDKManager shared] registLinKingSDKAppID:@"xxyzapp_ios" withSecretkey:@"a8c46799d6" cmoplete:^(LESDKManager * _Nonnull manager, NSError * _Nonnull error) {
+        // 加载启动
+    }];
     return YES;
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    
+    [[LESDKManager shared] applicationWillTerminate:application];
+}
+
+- (BOOL)application:(nonnull UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<NSString *, id> *)options{
+    
+    return [[LESDKManager shared] application:application openURL:url options:options];
+}
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+    
+    return [[LESDKManager shared] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+    
+}
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    
+    return [[LESDKManager shared] application:application didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
+}
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts API_AVAILABLE(ios(13.0)){
+    
+    [[LESDKManager shared] scene:scene openURLContexts:URLContexts];
+}
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void(^)(NSArray<id<UIUserActivityRestoring>> * __nullable restorableObjects))restorationHandler{
+    
+    return [[LESDKManager shared] application:application continueUserActivity:userActivity restorationHandler:restorationHandler];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -36,11 +75,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[LESDKManager shared] applicationDidBecomeActive:application];
 }
 
 @end
