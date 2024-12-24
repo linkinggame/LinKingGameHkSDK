@@ -66,9 +66,12 @@ static LEFBShareManager *_instance = nil;
        }
        if (hashtag != nil) {
            // #MadeWithHackbook
-           content.hashtag = [FBSDKHashtag hashtagWithString:[NSString stringWithFormat:@"#%@",hashtag]];
+           //content.hashtag = [FBSDKHashtag hashtagWithString:[NSString stringWithFormat:@"#%@",hashtag]];
+           //content.hashtag = [FBSDKHashtag hashtagWithString:[NSString stringWithFormat:@"#%@",hashtag]];
+           
        }
-       FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
+       //FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
+        FBSDKShareDialog *dialog= [[FBSDKShareDialog alloc] initWithViewController:viewController content:content delegate:self];
     
     if ([dialog canShow]) {
 //        dialog.fromViewController = viewController;
@@ -89,13 +92,18 @@ static LEFBShareManager *_instance = nil;
 /// @param viewController viewController description
 - (void)shareImageURL:(NSURL *)imageURL viewController:(UIViewController *)viewController complete:(void(^)(NSDictionary <NSString *, id> * _Nullable results,BOOL isCancel,NSError  * _Nullable error))complete{
      self.shareComplete = complete;
-    FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
+    /*FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
     photo.imageURL = imageURL;
     photo.userGenerated = YES;
     FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
     content.photos = @[photo];
 
-    FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
+    FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];*/
+    
+    FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] initWithImageURL:imageURL isUserGenerated:YES];
+    FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
+    content.photos = @[photo];
+    FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] initWithViewController:viewController content:content delegate:self];
     dialog.fromViewController = viewController;
     dialog.shareContent = content;
     dialog.delegate = self;
@@ -110,16 +118,18 @@ static LEFBShareManager *_instance = nil;
     self.shareComplete = complete;
     NSMutableArray *photos = [NSMutableArray array];
     for (NSURL *imageURL in imageURLs) {
-         FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
+         //FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
+        FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] initWithImageURL:imageURL isUserGenerated:YES];
          photo.imageURL = imageURL;
-         photo.userGenerated = YES;
+         //photo.userGenerated = YES;
         [photos addObject:photo];
     }
     
      FBSDKSharePhotoContent *content = [[FBSDKSharePhotoContent alloc] init];
      content.photos = photos;
     
-     FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
+     //FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
+    FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] initWithViewController:viewController content:content delegate:self];
      dialog.fromViewController = viewController;
      dialog.shareContent = content;
      dialog.mode = FBSDKShareDialogModeAutomatic;
@@ -132,14 +142,16 @@ static LEFBShareManager *_instance = nil;
 /// @param viewController viewController description
 - (void)shareVideoURL:(NSURL * _Nullable)videoURL viewController:(UIViewController *)viewController complete:(void(^)(NSDictionary <NSString *, id> * _Nullable results,BOOL isCancel,NSError  * _Nullable error))complete{
     self.shareComplete = complete;
-      FBSDKShareVideo *video = [[FBSDKShareVideo alloc] init];
+      //FBSDKShareVideo *video = [[FBSDKShareVideo alloc] init];
+    FBSDKShareVideo *video = [[FBSDKShareVideo alloc] initWithVideoURL:videoURL previewPhoto:NULL];
     
       video.videoURL = videoURL;
 
       FBSDKShareVideoContent *content = [[FBSDKShareVideoContent alloc] init];
       content.video = video;
 
-     FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
+     //FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
+    FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] initWithViewController:viewController content:content delegate:self];
      dialog.fromViewController = viewController;
      dialog.shareContent = content;
      dialog.delegate = self;
@@ -153,12 +165,16 @@ static LEFBShareManager *_instance = nil;
 /// @param viewController viewController description
 - (void)shareMediaImageURL:(NSURL * _Nullable)imageURL videoURL:(NSURL * _Nullable)videoURL viewController:(UIViewController *)viewController complete:(void(^)(NSDictionary <NSString *, id> * _Nullable results,BOOL isCancel,NSError  * _Nullable error))complete{
      self.shareComplete = complete;
-    FBSDKSharePhoto *photo = [FBSDKSharePhoto photoWithImageURL:imageURL userGenerated:YES];
-    FBSDKShareVideo *video = [FBSDKShareVideo videoWithVideoURL:videoURL];
+    //FBSDKSharePhoto *photo = [FBSDKSharePhoto photoWithImageURL:imageURL userGenerated:YES];
+    //FBSDKShareVideo *video = [FBSDKShareVideo videoWithVideoURL:videoURL];
+    FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] initWithImageURL:imageURL isUserGenerated:YES];
+    FBSDKShareVideo *video = [[FBSDKShareVideo alloc] initWithVideoURL:videoURL previewPhoto:NULL];
+    
     FBSDKShareMediaContent *content = [FBSDKShareMediaContent new];
     content.media = @[photo, video];
     
-    FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
+    //FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
+    FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] initWithViewController:viewController content:content delegate:self];
     dialog.fromViewController = viewController;
     dialog.shareContent = content;
     dialog.delegate = self;

@@ -26,7 +26,8 @@ static LEFBAnalyticsManager *_instance = nil;
 
 #pragma mark - 设备是否允许追踪时
 - (void)setAdvertiserTrackingEnabled:(BOOL)enabled{
-    [FBSDKSettings setAdvertiserTrackingEnabled:enabled];
+    //[FBSDKSettings setAdvertiserTrackingEnabled:enabled];
+    [FBSDKSettings.sharedSettings setAdvertiserTrackingEnabled:enabled];
 }
 
 
@@ -35,14 +36,16 @@ static LEFBAnalyticsManager *_instance = nil;
 /// 是否重新启动自动记录事件
 /// @param autoLogAppEventsEnabled YES:重新启动 NO:暂停自动收集
 - (void)setAutoLogAppEventsEnabled:(BOOL)autoLogAppEventsEnabled{
-    [FBSDKSettings setAutoLogAppEventsEnabled:autoLogAppEventsEnabled];
+    //[FBSDKSettings setAutoLogAppEventsEnabled:autoLogAppEventsEnabled];
+    [FBSDKSettings.sharedSettings setAutoLogAppEventsEnabled:autoLogAppEventsEnabled];
 }
 
 #pragma mark - 禁用广告主编号收集功能
 /// 是否禁用广告主编号收集功能
 /// @param advertiserIDCollectionEnabled YES:重新启动 NO:暂停自动收集
 - (void)setAdvertiserIDCollectionEnabled:(BOOL)advertiserIDCollectionEnabled{
-    [FBSDKSettings setAdvertiserIDCollectionEnabled:advertiserIDCollectionEnabled];
+    //[FBSDKSettings setAdvertiserIDCollectionEnabled:advertiserIDCollectionEnabled];
+    [FBSDKSettings.sharedSettings setAdvertiserIDCollectionEnabled:advertiserIDCollectionEnabled];
 }
 
 
@@ -52,7 +55,10 @@ static LEFBAnalyticsManager *_instance = nil;
 - (void)logCompleteRegistrationEvent:(NSString *)registrationMethod {
     NSDictionary *params =
     @{FBSDKAppEventParameterNameRegistrationMethod : registrationMethod};
-    [FBSDKAppEvents
+    /*[FBSDKAppEvents
+     logEvent:FBSDKAppEventNameCompletedRegistration
+     parameters:params];*/
+    [FBSDKAppEvents.shared
      logEvent:FBSDKAppEventNameCompletedRegistration
      parameters:params];
 }
@@ -70,8 +76,10 @@ static LEFBAnalyticsManager *_instance = nil;
            [NSNumber numberWithInt:success ? 1 : 0], FBSDKAppEventParameterNameSuccess,
            nil];
 
-   [FBSDKAppEvents logEvent: FBSDKAppEventNameCompletedTutorial
-       parameters: params];
+   /*[FBSDKAppEvents logEvent: FBSDKAppEventNameCompletedTutorial
+       parameters: params];*/
+    [FBSDKAppEvents.shared logEvent: FBSDKAppEventNameCompletedTutorial
+        parameters: params];
 }
 
 
@@ -85,7 +93,7 @@ static LEFBAnalyticsManager *_instance = nil;
            level, FBSDKAppEventParameterNameLevel,
            nil];
 
-   [FBSDKAppEvents logEvent: FBSDKAppEventNameAchievedLevel
+    [FBSDKAppEvents.shared logEvent: FBSDKAppEventNameAchievedLevel
        parameters: params];
 }
 
@@ -99,7 +107,7 @@ static LEFBAnalyticsManager *_instance = nil;
            description, FBSDKAppEventParameterNameDescription,
            nil];
 
-   [FBSDKAppEvents logEvent: FBSDKAppEventNameUnlockedAchievement
+   [FBSDKAppEvents.shared logEvent: FBSDKAppEventNameUnlockedAchievement
        parameters: params];
 }
 
@@ -127,7 +135,7 @@ static LEFBAnalyticsManager *_instance = nil;
            currency, FBSDKAppEventParameterNameCurrency,
            nil];
 
-   [FBSDKAppEvents logEvent: FBSDKAppEventNameInitiatedCheckout
+   [FBSDKAppEvents.shared logEvent: FBSDKAppEventNameInitiatedCheckout
        valueToSum: totalPrice
        parameters: params];
 }
@@ -153,7 +161,7 @@ static LEFBAnalyticsManager *_instance = nil;
            currency, FBSDKAppEventParameterNameCurrency,
            nil];
 
-   [FBSDKAppEvents logPurchase:price
+   [FBSDKAppEvents.shared logPurchase:price
          currency: currency
        parameters: params];
 }
@@ -166,7 +174,7 @@ static LEFBAnalyticsManager *_instance = nil;
 /// @param params 参数
 - (void)customeLogEventName:(NSString *)eventName withParameters:(NSDictionary *)params
 {
-    [FBSDKAppEvents logEvent:eventName parameters:params];
+    [FBSDKAppEvents.shared logEvent:eventName parameters:params];
 }
 
 
@@ -174,7 +182,7 @@ static LEFBAnalyticsManager *_instance = nil;
 /// @param eventName 事件名
 - (void)customeLogEventName:(NSString *)eventName
 {
-    [FBSDKAppEvents logEvent:eventName];
+    [FBSDKAppEvents.shared logEvent:eventName];
 }
 
 
@@ -184,7 +192,7 @@ static LEFBAnalyticsManager *_instance = nil;
 /// @param params 参数
 - (void)customeLogEventName:(NSString *)eventName valueToSum:(double)valueToSum withParameters:(NSDictionary *)params
 {
-    [FBSDKAppEvents logEvent:eventName valueToSum:valueToSum parameters:params];
+    [FBSDKAppEvents.shared logEvent:eventName valueToSum:valueToSum parameters:params];
 }
 
 /*

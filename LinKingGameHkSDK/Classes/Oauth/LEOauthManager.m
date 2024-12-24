@@ -322,7 +322,7 @@ static LEOauthManager *_instance = nil;
             }];
        
             // 注册成功后FB打点
-            [FBSDKAppEvents logEvent:FBSDKAppEventNameCompletedRegistration parameters:@{
+            [FBSDKAppEvents.shared logEvent:FBSDKAppEventNameCompletedRegistration parameters:@{
                 FBSDKAppEventParameterNameRegistrationMethod : (user.login_type.exceptNull != nil) ?user.login_type:@""
             }];
             
