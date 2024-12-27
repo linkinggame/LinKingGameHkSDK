@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LinKingGameHkSDK'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'A short description of LinKingGameHkSDK.'
 
 # This description is used to generate tags and improve search results.
@@ -43,6 +43,9 @@ TODO: Add long description of the pod here.
   s.dependency 'Toast', '~> 4.0.0'
   s.dependency 'AFNetworking', '~> 4.0.1'
   s.dependency 'FBAudienceNetwork', '~> 6.5.1'
-  s.dependency 'IronSourceSDK','7.1.1.0'
-  s.dependency 'IronSourcePangleAdapter','4.3.0.2'
+  #s.dependency 'IronSourceSDK','7.1.1.0'
+  #s.dependency 'IronSourcePangleAdapter','4.3.0.2'
+  s.dependency 'IronSourceSDK','8.5.1.0'
+  s.dependency 'IronSourceAdQualitySDK','7.22.3'
+
 end

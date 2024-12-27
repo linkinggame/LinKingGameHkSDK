@@ -12,7 +12,7 @@
 #import "LEAdConfInfo.h"
 #import "LESDKConfig.h"
 #import "LKLog.h"
-@interface LEIronSourceAdManager ()<ISBannerDelegate,ISInterstitialDelegate,ISRewardedVideoDelegate>
+@interface LEIronSourceAdManager ()<LevelPlayBannerDelegate,LevelPlayInterstitialDelegate,LevelPlayRewardedVideoDelegate>
 @property (nonatomic, copy) NSString *appKey;
 
 @property (nonatomic, strong) ISBannerView *bannerView;
@@ -99,7 +99,8 @@ static LEIronSourceAdManager *_intance = nil;
 
     [IronSource initWithAppKey:self.appKey adUnits:@[IS_BANNER]];
 
-    [IronSource setBannerDelegate:self];
+    //[IronSource setBannerDelegate:self];
+    [IronSource setLevelPlayBannerDelegate:self];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(orientationChanged:)
@@ -140,7 +141,8 @@ static LEIronSourceAdManager *_intance = nil;
 
     [IronSource initWithAppKey:self.appKey adUnits:@[IS_INTERSTITIAL]];
 
-    [IronSource setInterstitialDelegate:self];
+    //[IronSource setInterstitialDelegate:self];
+    [IronSource setLevelPlayInterstitialDelegate:self];
 
     //  加载非页内广告
     [IronSource loadInterstitial];
@@ -184,7 +186,8 @@ static LEIronSourceAdManager *_intance = nil;
         NSAssert(self.appKey.exceptNull != nil, @"appKey id cannot be empty");
     }
 
-    [IronSource setRewardedVideoDelegate:self];
+    //[IronSource setRewardedVideoDelegate:self];
+    [IronSource setLevelPlayRewardedVideoDelegate:self];
 
     [IronSource initWithAppKey:self.appKey adUnits:@[IS_REWARDED_VIDEO]];
         if (self.rewardADidOpenCallBack) {
