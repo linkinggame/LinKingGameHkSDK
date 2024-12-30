@@ -264,7 +264,8 @@ static LEIronSourceAdManager *_intance = nil;
  //在奖励视频尝试播放但失败后调用。
  // @ param error错误原因
  **/
-- (void)rewardedVideoDidFailToShowWithError:(NSError *)error {
+//- (void)rewardedVideoDidFailToShowWithError:(NSError *)error {
+- (void)didFailToShowWithError:(NSError *)error andAdInfo:(ISAdInfo *)adInfo{
 
     if (self.rewardADidShowFailCallBack) {
         self.rewardADidShowFailCallBack(error);
@@ -308,10 +309,17 @@ static LEIronSourceAdManager *_intance = nil;
 //Called after a rewarded video has finished playing. 在奖励视频播放完毕后调用。
 //- (void)rewardedVideoDidEnd {
 - (void)didCloseWithAdInfo:(ISAdInfo *)adInfo {
-    LKLogInfo(@"广告播放结束============================");
+    LKLogInfo(@"====激励视频 didCloseWithAdInfo=============================");
     if (self.rewardADidEndCallBack) {
         self.rewardADidEndCallBack();
     }
+    if (self.rewardADidReceiveCallBack) {
+        self.rewardADidReceiveCallBack();
+    }
+    if (self.rewardADidCloseCallBack) {
+        self.rewardADidCloseCallBack();
+    }
+    
 }
 #pragma mark - ISInterstitialDelegate
 //Invoked when Interstitial Ad is ready to be shown after load function was //called.
