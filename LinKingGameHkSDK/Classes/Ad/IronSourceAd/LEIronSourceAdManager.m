@@ -216,7 +216,7 @@ static LEIronSourceAdManager *_intance = nil;
 - (BOOL)getRewardVideoAdIsValid {
     return [IronSource hasRewardedVideo];
 }
-#pragma mark - ISRewardedVideoDelegate
+#pragma mark - LevelPlayRewardedVideoDelegate
 //Called after a rewarded video has changed its availability. 在奖励视频更改其可用性后调用。
 //@param available The new rewarded video availability. YES if available //and ready to be shown, NO otherwise. 新的奖励视频可用性。 是，如果可用//并准备显示，否则，否。 加载成功
 - (void)rewardedVideoHasChangedAvailability:(BOOL)available {
@@ -306,8 +306,9 @@ static LEIronSourceAdManager *_intance = nil;
     }
 }
 //Called after a rewarded video has finished playing. 在奖励视频播放完毕后调用。
-- (void)rewardedVideoDidEnd {
-
+//- (void)rewardedVideoDidEnd {
+- (void)didCloseWithAdInfo:(ISAdInfo *)adInfo {
+    LKLogInfo(@"广告播放结束============================");
     if (self.rewardADidEndCallBack) {
         self.rewardADidEndCallBack();
     }

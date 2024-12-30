@@ -1,6 +1,0 @@
-framework module LinKingGameHkSDK {
-  umbrella header "LinKingGameHkSDK-umbrella.h"
-
-  export *
-  module * { export * }
-}
