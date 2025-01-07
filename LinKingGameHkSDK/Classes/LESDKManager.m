@@ -262,7 +262,7 @@ static LESDKManager * _instance = nil;
         [self requestIDFA];
     }
     // FB 激活
-    [FBSDKAppEvents.shared activateApp];
+    [[FBSDKAppEvents shared] activateApp];
     
     // AF 激活
     [[AppsFlyerLib shared] start];

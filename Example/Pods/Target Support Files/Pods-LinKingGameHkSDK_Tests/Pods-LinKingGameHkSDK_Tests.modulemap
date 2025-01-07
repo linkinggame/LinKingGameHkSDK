@@ -1,0 +1,6 @@
+framework module Pods_LinKingGameHkSDK_Tests {
+  umbrella header "Pods-LinKingGameHkSDK_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

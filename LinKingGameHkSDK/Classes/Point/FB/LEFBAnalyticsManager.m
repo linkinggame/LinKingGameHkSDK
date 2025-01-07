@@ -26,8 +26,9 @@ static LEFBAnalyticsManager *_instance = nil;
 
 #pragma mark - 设备是否允许追踪时
 - (void)setAdvertiserTrackingEnabled:(BOOL)enabled{
-    //[FBSDKSettings setAdvertiserTrackingEnabled:enabled];
-    [FBSDKSettings.sharedSettings setAdvertiserTrackingEnabled:enabled];
+//    [FBSDKSettings setAdvertiserTrackingEnabled:enabled];
+    [[FBSDKSettings sharedSettings] setIsAdvertiserTrackingEnabled:enabled];
+//    [FBSDKSettings.sharedSettings setAdvertiserTrackingEnabled:enabled];
 }
 
 
@@ -36,8 +37,8 @@ static LEFBAnalyticsManager *_instance = nil;
 /// 是否重新启动自动记录事件
 /// @param autoLogAppEventsEnabled YES:重新启动 NO:暂停自动收集
 - (void)setAutoLogAppEventsEnabled:(BOOL)autoLogAppEventsEnabled{
-    //[FBSDKSettings setAutoLogAppEventsEnabled:autoLogAppEventsEnabled];
-    [FBSDKSettings.sharedSettings setAutoLogAppEventsEnabled:autoLogAppEventsEnabled];
+//    [FBSDKSettings setAutoLogAppEventsEnabled:autoLogAppEventsEnabled];
+    [[FBSDKSettings sharedSettings] setIsAutoLogAppEventsEnabled:autoLogAppEventsEnabled];
 }
 
 #pragma mark - 禁用广告主编号收集功能
@@ -45,7 +46,7 @@ static LEFBAnalyticsManager *_instance = nil;
 /// @param advertiserIDCollectionEnabled YES:重新启动 NO:暂停自动收集
 - (void)setAdvertiserIDCollectionEnabled:(BOOL)advertiserIDCollectionEnabled{
     //[FBSDKSettings setAdvertiserIDCollectionEnabled:advertiserIDCollectionEnabled];
-    [FBSDKSettings.sharedSettings setAdvertiserIDCollectionEnabled:advertiserIDCollectionEnabled];
+    [[FBSDKSettings sharedSettings] setIsAdvertiserIDCollectionEnabled:advertiserIDCollectionEnabled];
 }
 
 
@@ -58,7 +59,7 @@ static LEFBAnalyticsManager *_instance = nil;
     /*[FBSDKAppEvents
      logEvent:FBSDKAppEventNameCompletedRegistration
      parameters:params];*/
-    [FBSDKAppEvents.shared
+    [[FBSDKAppEvents shared]
      logEvent:FBSDKAppEventNameCompletedRegistration
      parameters:params];
 }
@@ -78,8 +79,9 @@ static LEFBAnalyticsManager *_instance = nil;
 
    /*[FBSDKAppEvents logEvent: FBSDKAppEventNameCompletedTutorial
        parameters: params];*/
-    [FBSDKAppEvents.shared logEvent: FBSDKAppEventNameCompletedTutorial
-        parameters: params];
+//    [FBSDKAppEvents.shared logEvent: FBSDKAppEventNameCompletedTutorial
+//        parameters: params];
+    [[FBSDKAppEvents shared] logEvent:FBSDKAppEventNameCompletedTutorial parameters:params];
 }
 
 
@@ -93,8 +95,9 @@ static LEFBAnalyticsManager *_instance = nil;
            level, FBSDKAppEventParameterNameLevel,
            nil];
 
-    [FBSDKAppEvents.shared logEvent: FBSDKAppEventNameAchievedLevel
-       parameters: params];
+    [[FBSDKAppEvents shared] logEvent:FBSDKAppEventNameAchievedLevel parameters:params];
+//    [FBSDKAppEvents.shared logEvent: FBSDKAppEventNameAchievedLevel
+//       parameters: params];
 }
 
 
@@ -107,8 +110,9 @@ static LEFBAnalyticsManager *_instance = nil;
            description, FBSDKAppEventParameterNameDescription,
            nil];
 
-   [FBSDKAppEvents.shared logEvent: FBSDKAppEventNameUnlockedAchievement
-       parameters: params];
+//   [FBSDKAppEvents.shared logEvent: FBSDKAppEventNameUnlockedAchievement
+//       parameters: params];
+    [[FBSDKAppEvents shared] logEvent:FBSDKAppEventNameUnlockedAchievement parameters:params];
 }
 
 
@@ -135,9 +139,10 @@ static LEFBAnalyticsManager *_instance = nil;
            currency, FBSDKAppEventParameterNameCurrency,
            nil];
 
-   [FBSDKAppEvents.shared logEvent: FBSDKAppEventNameInitiatedCheckout
-       valueToSum: totalPrice
-       parameters: params];
+//   [FBSDKAppEvents.shared logEvent: FBSDKAppEventNameInitiatedCheckout
+//       valueToSum: totalPrice
+//       parameters: params];
+    [[FBSDKAppEvents shared] logEvent:FBSDKAppEventNameInitiatedCheckout valueToSum:totalPrice parameters:params];
 }
 
 
@@ -161,9 +166,10 @@ static LEFBAnalyticsManager *_instance = nil;
            currency, FBSDKAppEventParameterNameCurrency,
            nil];
 
-   [FBSDKAppEvents.shared logPurchase:price
-         currency: currency
-       parameters: params];
+//   [FBSDKAppEvents.shared logPurchase:price
+//         currency: currency
+//       parameters: params];
+    [[FBSDKAppEvents shared]  logPurchase:price currency:currency parameters:params];
 }
 
 
@@ -174,7 +180,8 @@ static LEFBAnalyticsManager *_instance = nil;
 /// @param params 参数
 - (void)customeLogEventName:(NSString *)eventName withParameters:(NSDictionary *)params
 {
-    [FBSDKAppEvents.shared logEvent:eventName parameters:params];
+//    [FBSDKAppEvents.shared logEvent:eventName parameters:params];
+    [[FBSDKAppEvents shared] logEvent:eventName parameters:params];
 }
 
 
@@ -182,7 +189,8 @@ static LEFBAnalyticsManager *_instance = nil;
 /// @param eventName 事件名
 - (void)customeLogEventName:(NSString *)eventName
 {
-    [FBSDKAppEvents.shared logEvent:eventName];
+//    [FBSDKAppEvents.shared logEvent:eventName];
+    [[FBSDKAppEvents shared] logEvent:eventName];
 }
 
 
@@ -192,7 +200,8 @@ static LEFBAnalyticsManager *_instance = nil;
 /// @param params 参数
 - (void)customeLogEventName:(NSString *)eventName valueToSum:(double)valueToSum withParameters:(NSDictionary *)params
 {
-    [FBSDKAppEvents.shared logEvent:eventName valueToSum:valueToSum parameters:params];
+//    [FBSDKAppEvents.shared logEvent:eventName valueToSum:valueToSum parameters:params];
+    [[FBSDKAppEvents shared] logEvent:eventName valueToSum:valueToSum parameters:params];
 }
 
 /*
