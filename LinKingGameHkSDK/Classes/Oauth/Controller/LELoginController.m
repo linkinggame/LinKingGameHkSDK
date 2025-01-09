@@ -201,6 +201,11 @@
         }else if (result.token.exceptNull != nil && error == nil) {
             
             NSString *token = result.token.tokenString;
+            //NSString *token = [[FBSDKAccessToken currentAccessToken] tokenString];
+            LKLogInfo(@"====facebookLoginWithToken===token== %@", token);
+            //LKLogInfo(@"====facebookLoginWithToken===expired1== %@", [FBSDKAccessToken currentAccessToken].expirationDate );
+            
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self showMaskView];
             });

@@ -29,8 +29,8 @@ static LESignInFacebook *_instance = nil;
 }
 
 - (void)loginRootViewController:(UIViewController * _Nonnull)viewController complete:(void(^_Nullable)(FBSDKLoginManagerLoginResult* _Nullable result, NSError * _Nonnull error))complete{
-    
-     [self.loginManager logInWithPermissions:@[@"public_profile",@"email"] fromViewController:viewController handler:^(FBSDKLoginManagerLoginResult * _Nullable result, NSError * _Nullable error) {
+    //public_profile   gaming_profile
+     [self.loginManager logInWithPermissions:@[@"gaming_profile",@"email"] fromViewController:viewController handler:^(FBSDKLoginManagerLoginResult * _Nullable result, NSError * _Nullable error) {
            
          if (complete) {
              complete(result,error);
