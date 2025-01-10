@@ -24,6 +24,9 @@
     [[LESDKManager shared] registLinKingSDKAppID:@"xxyzapp_ios" withSecretkey:@"a8c46799d6" cmoplete:^(LESDKManager * _Nonnull manager, NSError * _Nonnull error) {
         // 加载启动
     }];
+    /*[[LESDKManager shared] registLinKingSDKAppID:@"SoccerClubTycoon_ios" withSecretkey:@"57ef78b379" cmoplete:^(LESDKManager * _Nonnull manager, NSError * _Nonnull error) {
+        // 加载启动
+    }];*/
     return YES;
 }
 

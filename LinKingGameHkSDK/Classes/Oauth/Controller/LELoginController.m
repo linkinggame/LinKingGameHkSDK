@@ -185,6 +185,7 @@
        
         
         if (result.isCancelled) {
+            LKLogInfo(@"====facebookLoginWithToken======isCancelled true ");
             NSError *errorRes =nil;
             [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginCancel" object:@"apple"];
             errorRes = [self responserErrorMsg:[NSBundle le_localizedStringForKey:@"Cancel login"] code:1001];
@@ -196,14 +197,16 @@
            
             self.loginCompleteCallBack(nil, errorRes);
             
-            
-            
         }else if (result.token.exceptNull != nil && error == nil) {
-            
+            LKLogInfo(@"====facebookLoginWithToken======login success true ");
             NSString *token = result.token.tokenString;
+            NSString *userId = result.token.userID;
             //NSString *token = [[FBSDKAccessToken currentAccessToken] tokenString];
+            //NSString *userId = [[FBSDKAccessToken currentAccessToken] userID];
+            
             LKLogInfo(@"====facebookLoginWithToken===token== %@", token);
-            //LKLogInfo(@"====facebookLoginWithToken===expired1== %@", [FBSDKAccessToken currentAccessToken].expirationDate );
+            LKLogInfo(@"====facebookLoginWithToken===userId== %@", userId);
+            LKLogInfo(@"====facebookLoginWithToken===expired1== %@", result.token.expirationDate);
             
             
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -253,6 +256,7 @@
             }];
             
         }else{
+            LKLogInfo(@"====facebookLoginWithToken====== else ");
             if (self.loginCompleteCallBack) {
                 self.loginCompleteCallBack(nil, error);
             }

@@ -120,10 +120,10 @@
 
 
 + (void)facebookLoginWithToken:(NSString *)token complete:(void(^)(NSError *error,LEUser *user))complete{
-         NSString *url = [NSString stringWithFormat:@"%@%@",[self baseURL],@"login/fb_login"];
+        NSString *url = [NSString stringWithFormat:@"%@%@",[self baseURL],@"login/fb_login"];
         /*NSString *url = [NSString stringWithFormat:@"%@%@", @"https://lk-sdk-hk.chiji-h5.com/server/s/SoccerClubTycoon_ios/",@"login/fb_login"];
-         */
-         NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:[self defaultParames]];
+        */
+        NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:[self defaultParames]];
       
     LKLogInfo(@"====facebookLoginWithToken======2222== %@", url);
         [parameters setObject:token forKey:@"access_token"];
