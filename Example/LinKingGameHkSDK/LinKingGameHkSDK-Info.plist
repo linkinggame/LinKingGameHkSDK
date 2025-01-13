@@ -39,10 +39,10 @@
 	<true/>
 	<key>FacebookAppID</key>
 	<string>1061623708413346</string>
-	<key>FacebookClientToken</key>
-	<string>1e002a37045e1f7440b4a6e7e231a6a2</string>
 	<key>FacebookDisplayName</key>
 	<string>Soccer Club Tycoon</string>
+	<key>FacebookClientToken</key>
+	<string>1e002a37045e1f7440b4a6e7e231a6a2</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fb</string>

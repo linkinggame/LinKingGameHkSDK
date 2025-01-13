@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LinKingGameHkSDK'
-  s.version          = '0.1.12'
+  s.version          = '0.1.13'
   s.summary          = 'A short description of LinKingGameHkSDK.'
 
 # This description is used to generate tags and improve search results.
@@ -36,8 +36,10 @@ TODO: Add long description of the pod here.
   s.resources = "LinKingGameHkSDK/Assets/*.*"
   #s.dependency 'FBSDKLoginKit', '~> 11.2.0'
   #s.dependency 'FBSDKShareKit', '~> 11.2.0'
-  s.dependency 'FBSDKLoginKit', '~> 17.4.0'
-  s.dependency 'FBSDKShareKit', '~> 17.4.0'
+  s.dependency 'FBSDKLoginKit', '~> 16.3.1'
+  s.dependency 'FBSDKShareKit', '~> 16.3.1'
+  #s.dependency 'FBSDKLoginKit', '~> 17.4.0'
+  #s.dependency 'FBSDKShareKit', '~> 17.4.0'
   s.dependency 'Beta-AppsFlyerFramework', '~> 6.0.2.174'
   s.dependency 'SDWebImage', '~> 5.0.6'
   s.dependency 'Toast', '~> 4.0.0'

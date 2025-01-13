@@ -37,6 +37,23 @@ static LESignInFacebook *_instance = nil;
              complete(result,error);
          }
        }];
+    /*FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
+    FBSDKLoginConfiguration *configuration =[[FBSDKLoginConfiguration alloc] initWithPermissions:@[@"email", @"gaming_profile"]
+                                                  tracking:FBSDKLoginTrackingEnabled
+                                                     nonce:@"1234"];
+    [loginManager logInFromViewController:viewController
+                            configuration:configuration
+                               completion:^(FBSDKLoginManagerLoginResult * result, NSError *error) {
+      if (!error && !result.isCancelled) {
+        // Login successful
+          if (complete) {
+              complete(result,error);
+          }
+      }
+    }];*/
+    
+    
+    
     
     
 }
